@@ -43,7 +43,7 @@ const Donasi = () => {
 	let nominal = watch("nominal");
 
 	useEffect(() => {
-		dispatch(getAllDebit());
+		dispatch(getAllDebit({}));
 	}, [dispatch]);
 
 	useEffect(() => {
