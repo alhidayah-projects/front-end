@@ -9,8 +9,8 @@ import CopyToClipboard from "../../components/UI/CopyToClipboard";
 import { HiInformationCircle } from "react-icons/hi";
 import { ImWarning } from "react-icons/im";
 import {
-  maxLengthPhoneNumber,
-  minLengthPhoneNumber,
+  // maxLengthPhoneNumber,
+  // minLengthPhoneNumber,
   normalImageValidate,
   sizeLimit,
 } from "../../utils/formValidates";
@@ -231,10 +231,10 @@ const Donasi = () => {
               options={{
                 ...register("whatsapp", {
                   valueAsNumber: true,
-                  validate: {
-                    minLength: (value) => minLengthPhoneNumber(value),
-                    maxLength: (value) => maxLengthPhoneNumber(value),
-                  },
+                  // validate: {
+                  //   minLength: (value) => minLengthPhoneNumber(value),
+                  //   maxLength: (value) => maxLengthPhoneNumber(value),
+                  // },
                 }),
                 type: "number",
               }}
