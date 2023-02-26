@@ -17,7 +17,7 @@ import {
 import { showAlert } from "../../../store/slices/ui-slice";
 
 const DonationTable = () => {
-  const filterStatus = useState("");
+  const [filterStatus, setFilterStatus] = useState("");
   const dispatch = useDispatch();
   const { items, loading, success, error, pagination } = useSelector(
     (state) => state.donation
@@ -49,7 +49,12 @@ const DonationTable = () => {
   }, [dispatch, success, error]);
 
   const filterHandler = (value) => {
-    dispatch(getAllDonationData({ query: value }));
+    setFilterStatus(value);
+    if (value === 'all') {
+      dispatch(getAllDonationData({}));
+    } else {
+      dispatch(getAllDonationData({ query: value }));
+    }
   };
 
   const renderRow =
@@ -137,10 +142,10 @@ const DonationTable = () => {
           value: filterStatus,
         }}
       >
-        <option value="">Semua</option>
-        <option value="check">Check</option>
-        <option value="approve">Approve</option>
-        <option value="reject">Reject</option>
+        <option value="all" selected={filterStatus === 'all'}>Semua</option>
+        <option value="check" selected={filterStatus === 'check'}>Check</option>
+        <option value="approve" selected={filterStatus === 'approve'}>Approve</option>
+        <option value="reject" selected={filterStatus === 'reject'}>Reject</option>
       </Select>
       <div className="w-full overflow-auto">
         <table className="w-full border-collapse border border-slate-400 table-auto">

@@ -106,6 +106,11 @@ const ChildrenTable = () => {
           Tambah
         </Link>
         <SearchForm action={getAllChildrenData} />
+        <strong>Keterangan:</strong>
+        <ol>
+          <li>YP (Yatim Piatu)</li>
+          <li>TM (Tidak Mampu)</li>
+        </ol>
       </div>
       <div className="w-full overflow-auto">
         <table className="w-full border-collapse border border-slate-400 table-auto">
